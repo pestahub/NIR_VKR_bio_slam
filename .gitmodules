@@ -1,5 +1,0 @@
-
-
-[submodule "yocs_velocity_smoother"]
-	path = yocs_velocity_smoother
-	url = https://github.com/chvmp/yocs_velocity_smoother
