@@ -7,3 +7,6 @@
 [submodule "yocs_velocity_smoother"]
 	path = VKR/workspace/src/yocs_velocity_smoother
 	url = https://github.com/chvmp/yocs_velocity_smoother
+[submodule "VKR/workspace/src/velodyne_simulator"]
+	path = VKR/workspace/src/velodyne_simulator
+	url = https://bitbucket.org/DataspeedInc/velodyne_simulator.git
