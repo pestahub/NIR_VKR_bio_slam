@@ -7,3 +7,6 @@
 До 10.03.2022 необходимо написать то, как я вижу дальнешую работу в виде сочинения на 2-3 страницы. В этом сочинение также необходимо рассмотреть мативацию написание данной работы.
 
 
+Requrenments:
+
+``` sudo apt install ros-melodic-cartographer ros-melodic-cartographer-ros ros-melodic-cartographer-rviz ros-melodic-velodyne-simulator```
