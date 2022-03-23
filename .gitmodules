@@ -1,6 +1,3 @@
-[submodule "champ"]
-	path = VKR/workspace/src/champ
-	url = https://github.com/chvmp/champ
 [submodule "champ_teleop"]
 	path = VKR/workspace/src/champ_teleop
 	url = https://github.com/chvmp/champ_teleop
