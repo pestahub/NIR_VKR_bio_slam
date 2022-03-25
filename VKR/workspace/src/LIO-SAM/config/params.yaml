@@ -8,7 +8,7 @@ lio_sam:
 
   # Frames
   lidarFrame: "velodyne"
-  baselinkFrame: "base_footprint"
+  baselinkFrame: "base_link"
   odometryFrame: "odom"
   mapFrame: "map"
 
