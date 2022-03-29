@@ -26,6 +26,6 @@ imu0_config: [false, false, false,
               false, false,  true,
               false, false, false]
 
-odom_frame: odom
+odom_frame: champ_odom
 base_link_frame: base_footprint
-world_frame: odom
+world_frame: champ_odom

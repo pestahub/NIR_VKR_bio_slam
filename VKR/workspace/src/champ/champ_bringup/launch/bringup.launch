@@ -69,7 +69,8 @@
         </node>
 
         <node pkg="robot_localization" type="ekf_localization_node" name="footprint_to_odom_ekf"> 
-            <remap from="odometry/filtered" to="odom" />
+            <remap from="odometry/filtered" to="    <arg name="odom_topic"            default="champ_odom"/>
+" />
             <rosparam command="load" file="$(find champ_base)/config/ekf/footprint_to_odom.yaml" />
         </node>
         

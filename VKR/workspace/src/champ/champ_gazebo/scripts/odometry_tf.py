@@ -54,7 +54,7 @@ class Odom:
             odom_quat,
             current_time,
             "base_footprint",
-            "odom"
+            "champ_odom"
         )
 
 if __name__ == "__main__":

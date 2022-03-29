@@ -74,7 +74,7 @@ class ChampOdometry:
         current_time = rospy.Time.now()
         odom = Odometry()
         odom.header.stamp = current_time
-        odom.header.frame_id = "odom"
+        odom.header.frame_id = "champ_odom"
 
         odom_quat = tf.transformations.quaternion_from_euler(0, 0, theta)
         odom.pose.pose = Pose(Point(x, y, z), Quaternion(*odom_quat))
@@ -95,7 +95,7 @@ class ChampOdometry:
             odom_quat,
             current_time,
             "base_footprint",
-            "odom"
+            "champ_odom"
         )
 
     def get_foot_position(self, leg_id):
