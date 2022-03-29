@@ -28,4 +28,4 @@ imu0_config: [false, false, false,
 
 odom_frame: champ_odom
 base_link_frame: base_footprint
-world_frame: champ_odom
+world_frame: map
