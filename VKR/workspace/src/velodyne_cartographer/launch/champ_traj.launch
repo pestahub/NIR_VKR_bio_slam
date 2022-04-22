@@ -1,0 +1,5 @@
+<launch>
+ <node name="champ_trajectory" pkg="velodyne_cartogtapher" type="champ_trajectory_1.py" output="screen" >
+   
+  </node>
+</launch>
