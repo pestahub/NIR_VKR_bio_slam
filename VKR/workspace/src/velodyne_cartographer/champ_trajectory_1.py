@@ -2,6 +2,7 @@
 #credits to: https://github.com/ros-teleop/teleop_twist_keyboard/blob/master/teleop_twist_keyboard.py
 
 from __future__ import print_function
+from hashlib import new
 from math import sin, cos, pi
 
 import roslib; roslib.load_manifest('champ_teleop')
@@ -75,8 +76,16 @@ def go_forwart(distance):
 def turn_left(angle):
   start_odom = odom
   r = rospy.Rate(10)
-  while (y_from_quaternion(odom) < ((y_from_quaternion(start_odom) + angle) % (pi))):
-    print(y_from_quaternion(odom), y_from_quaternion(start_odom), angle)
+  start_yaw = y_from_quaternion(start_odom)
+  start_yaw += pi
+  start_yaw = start_yaw % 2*pi
+  now_odom = y_from_quaternion(odom) + pi
+  now_odom = now_odom % 2*pi
+  new_angle = start_yaw + angle
+  while now_odom > (new_angle+0.1) or now_odom < (new_angle-0.1):
+    now_odom = y_from_quaternion(odom) + pi
+    now_odom = now_odom % 2*pi
+    print(start_yaw, now_odom, new_angle)
     twist.linear.x = 0.0
     twist.linear.y = 0.0
     twist.linear.z = 0.0
@@ -91,8 +100,15 @@ def turn_left(angle):
 def turn_right(angle):
   start_odom = odom
   r = rospy.Rate(10)
-  
-  while (y_from_quaternion(odom) > ((y_from_quaternion(start_odom) - angle) % (pi))):
+  new_angel = (y_from_quaternion(start_odom) - angle)
+  if new_angel < 0: 
+    new_angel*=-1
+    new_angel = new_angel % pi
+    new_angel *=-1
+  else: 
+    new_angel = new_angel % pi
+  print(new_angel)
+  while (y_from_quaternion(odom)) > (new_angel+0.05) or y_from_quaternion(odom) < (new_angel-0.05):
 
     print(y_from_quaternion(odom), y_from_quaternion(start_odom), angle)
     twist.linear.x = 0.0
@@ -114,14 +130,22 @@ def main():
   joy_subscriber = rospy.Subscriber('odom/ground_truth', Odometry, odometry_callback)
   global twist
   twist = Twist()
-  r = rospy.Rate(10)
+  r = rospy.Rate(1)
   r.sleep()
+  # turn_right(0.1)
+
+  # go_forwart(7)
+  # turn_left(3.1415)
+  # go_forwart(7)
   turn_right(0.1)
 
-  go_forwart(7)
-  turn_left(3.1415)
-  go_forwart(7)
-
+  go_forwart(1)
+  turn_left(pi/2)
+  go_forwart(1)
+  turn_left(pi/2)
+  go_forwart(1)
+  turn_left(pi/2)
+  go_forwart(1)
 
 
 
