@@ -3,7 +3,7 @@
     <arg name="gui"                default="true"/>
     <arg name="headless"           default="false"/>
     <arg name="paused"             default="false"/>
-    <arg name="gazebo_world"       default="$(find champ_gazebo)/worlds/outdoor.world" />
+    <arg name="gazebo_world"       default="$(find champ_config)/worlds/gen.world" />
 
     <!-- this should be only called once on multi-robot simulation -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
